@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para alguien muy especial</title>
+    <style>
+        /* Fondo degradado suave pastel */
+        body {
+            background: linear-gradient(135deg, #ffe6f2, #ffb3d9);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Lluvia de corazones */
+        #lluvia {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .corazon-cayendo {
+            position: absolute;
+            top: -50px;
+            opacity: 0.8;
+            animation: caer linear forwards;
+        }
+
+        @keyframes caer {
+            to { transform: translateY(105vh) rotate(360deg); }
+        }
+
+        /* Elementos flotantes de fondo */
+        .enfermeria-item {
+            position: absolute;
+            font-size: 2.5rem;
+            opacity: 0.4;
+            animation: flotar 4s infinite ease-in-out alternate;
+            z-index: 1;
+        }
+
+        .item1 { top: 15%; left: 10%; animation-delay: 0s; }
+        .item2 { top: 75%; left: 15%; animation-delay: 1s; }
+        .item3 { top: 20%; right: 10%; animation-delay: 0.5s; }
+        .item4 { top: 70%; right: 15%; animation-delay: 1.5s; }
+
+        @keyframes flotar {
+            from { transform: translateY(0px); }
+            to { transform: translateY(-25px); }
+        }
+
+        /* Tarjeta principal estilo cristal con bordes elegantes */
+        .tarjeta {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            z-index: 2;
+            max-width: 90%;
+            width: 450px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Mensaje con contraste oscuro elegante */
+        .mensaje-especial {
+            font-size: 28px;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        /* Estilos para la imagen del osito */
+        .osito-img {
+            width: 250px;
+            height: auto;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            /* Animación suave como si respirara */
+            animation: latido-oso 3s infinite ease-in-out;
+            object-fit: cover;
+        }
+
+        @keyframes latido-oso {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        /* Botón original con acento negro al pasar el ratón */
+        .btn-magico {
+            background: linear-gradient(45deg, #ff6b81, #ff4757);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 107, 129, 0.5);
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .btn-magico:hover {
+            background: #1a1a1a;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Poema Oculto */
+        #poema-container {
+            display: none;
+            margin-top: 25px;
+            color: #1a1a1a;
+            font-size: 18px;
+            line-height: 1.6;
+            animation: aparecer 1s ease forwards;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #1a1a1a;
+            text-align: left;
+        }
+
+        @keyframes aparecer {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Lluvia de corazones automática -->
+    <div id="lluvia"></div>
+
+    <!-- Elementos flotantes -->
+    <div class="enfermeria-item item1">🩺</div>
+    <div class="enfermeria-item item2">💊</div>
+    <div class="enfermeria-item item3">🩹</div>
+    <div class="enfermeria-item item4">💉</div>
+
+    <div class="tarjeta">
+        <h1 class="mensaje-especial">Para alguien muy especial ❤️</h1>
+
+        <!-- Imagen de tu osito 3D -->
+        <img src="ai-oso-de-peluche-enfermera-con-lazos-rojos-de-concienciacion-3d-icon-png-download-jpg-14638518.webp" alt="Osito de peluche enfermera" class="osito-img">
+        
+        <button class="btn-magico" id="boton-poema" onclick="revelarPoema()">Toca aquí para una sorpresa ✨</button>
+
+        <!-- Tu Poema -->
+        <div id="poema-container">
+            <p>
+                Intentaré decir lo que siento aunque es difícil porque tú eres alguien muy especial y te mereces lo mismo 💗,
+                tus mensajes son los que más me gusta recibir en el día a día y saber qué haces, poder ser quien escuche tus frustraciones y alegrarme también por tus logros.
+                Me gustas mucho, y quisiera pasar más tiempo contigo, poder enamorarte y pasar fechas especiales juntos, aunque así sea vernos un día cualquiera va a ser especial.
+                Eres la mejor chica del universoooo y me encantaría que me dieras la oportunidad de demostrarte que puedo hacerte feliz.<br><br>
+                <strong>Eres increíble. 🐻🩺🖤</strong>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function revelarPoema() {
+            document.getElementById('poema-container').style.display = 'block';
+            document.getElementById('boton-poema').style.display = 'none';
+        }
+
+        function crearCorazon() {
+            const corazon = document.createElement('div');
+            corazon.classList.add('corazon-cayendo');
+            
+            const emojis = ['💖', '❤️', '🖤', '✨'];
+            corazon.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+            
+            corazon.style.left = Math.random() * 100 + 'vw';
+            corazon.style.fontSize = (Math.random() * 15 + 10) + 'px';
+            corazon.style.animationDuration = Math.random() * 3 + 3 + 's';
+            
+            document.getElementById('lluvia').appendChild(corazon);
+            
+            setTimeout(() => {
+                corazon.remove();
+            }, 6000);
+        }
+
+        setInterval(crearCorazon, 350);
+    </script>
+</body>
+</html>
